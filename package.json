@@ -19,6 +19,7 @@
     "astro": "^6.1.8",
     "astro-htmx": "^1.0.6",
     "drizzle-orm": "^0.45.2",
+    "hono": "^4.12.14",
     "wrangler": "^4.84.0"
   },
   "devDependencies": {
