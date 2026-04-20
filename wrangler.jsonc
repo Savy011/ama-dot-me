@@ -1,6 +1,6 @@
 {
   "compatibility_date": "2026-04-20",
-  "compatibility_flags": ["global_fetch_strictly_public"],
+  "compatibility_flags": ["global_fetch_strictly_public", "nodejs_compat"],
   "name": "ama-dot-me",
   "main": "@astrojs/cloudflare/entrypoints/server",
   "assets": {
@@ -9,5 +9,12 @@
   },
   "observability": {
     "enabled": true
-  }
+  },
+  "d1_databases": [
+    {
+      "binding": "AMA",
+      "database_name": "ama-dot-me",
+      "database_id": "dc000684-0f1e-4ba2-988e-6831a0d5bffc"
+    }
+  ]
 }
