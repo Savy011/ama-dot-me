@@ -12,6 +12,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^6.1.8"
+    "astro": "^6.1.8",
+    "astro-htmx": "^1.0.6"
+  },
+  "devDependencies": {
+    "htmx.org": "^2.0.8"
   }
 }
