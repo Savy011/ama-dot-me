@@ -6,7 +6,8 @@
     "useIgnoreFile": true
   },
   "files": {
-    "ignoreUnknown": false
+    "ignoreUnknown": false,
+    "includes": ["**/*.{js,ts}", "src/**/*.astro", "!src/worker-configuration.d.ts"]
   },
   "formatter": {
     "enabled": true,

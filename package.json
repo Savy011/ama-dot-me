@@ -11,16 +11,20 @@
     "preview": "astro preview",
     "astro": "astro",
     "fmt": "biome check --write .",
-    "generate-types": "wrangler types"
+    "gen:types": "wrangler types ./src/worker-configuration.d.ts",
+    "gen:migrations": "drizzle-kit generate"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^13.1.10",
     "astro": "^6.1.8",
     "astro-htmx": "^1.0.6",
+    "drizzle-orm": "^0.45.2",
     "wrangler": "^4.84.0"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.12",
+    "@types/node": "^25.6.0",
+    "drizzle-kit": "^0.31.10",
     "htmx.org": "^2.0.8",
     "lefthook": "^2.1.6"
   },
