@@ -10,15 +10,21 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "fmt": "biome check --write ."
+    "fmt": "biome check --write .",
+    "generate-types": "wrangler types"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^13.1.10",
     "astro": "^6.1.8",
-    "astro-htmx": "^1.0.6"
+    "astro-htmx": "^1.0.6",
+    "wrangler": "^4.84.0"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.12",
     "htmx.org": "^2.0.8",
     "lefthook": "^2.1.6"
+  },
+  "overrides": {
+    "vite": "^7"
   }
 }
