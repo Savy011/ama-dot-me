@@ -5,6 +5,10 @@ dist/
 .astro/
 src/worker-configuration.d.ts
 
+# env-vars
+.dev.vars*
+.env*
+
 # dependencies
 node_modules/
 

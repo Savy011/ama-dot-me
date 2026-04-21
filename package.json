@@ -6,8 +6,8 @@
     "node": ">=22.12.0"
   },
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
+    "dev": "pnpm gen:types && astro dev",
+    "build": "pnpm gen:types && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "fmt": "biome check --write .",
@@ -17,9 +17,9 @@
   "dependencies": {
     "@astrojs/cloudflare": "^13.1.10",
     "astro": "^6.1.8",
-    "astro-htmx": "^1.0.6",
     "drizzle-orm": "^0.45.2",
     "hono": "^4.12.14",
+    "htmx-ext-response-targets": "^2.0.4",
     "wrangler": "^4.84.0"
   },
   "devDependencies": {
