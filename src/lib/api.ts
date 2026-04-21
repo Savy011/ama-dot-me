@@ -2,10 +2,13 @@ import { env } from "cloudflare:workers";
 import { and, eq } from "drizzle-orm";
 import { Hono } from "hono";
 import { nanoid } from "nanoid";
+import { Resend } from "resend";
 
 import { getDb } from "$lib/db";
 import { Question } from "$lib/db/schema";
 import { validateToken } from "$lib/utils";
+
+const resend = new Resend(env.RESEND_API_KEY);
 
 export function createHonoApp(cfContext: ExecutionContext) {
   return new Hono<{ Bindings: Env }>()
@@ -45,12 +48,15 @@ export function createHonoApp(cfContext: ExecutionContext) {
       const subject = `[ask-${id}] Someone asked you a question!`;
 
       cfContext.waitUntil(
-        env.EMAIL.send({
-          to: env.OWNER_EMAIL,
-          from: env.FROM_EMAIL,
-          subject,
-          text: question,
-        }),
+        resend.emails
+          .send({
+            from: `AMA <${env.FROM_EMAIL}>`,
+            to: [env.OWNER_EMAIL],
+            subject,
+            replyTo: env.REPLY_EMAIL,
+            text: question,
+          })
+          .catch(err => console.error("[resend] failed to send notification:", err)),
       );
 
       c.status(201);

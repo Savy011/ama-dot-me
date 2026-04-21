@@ -1,5 +1,6 @@
 import { eq } from "drizzle-orm";
 import PostalMime from "postal-mime";
+import { Resend } from "resend";
 
 import { getDb } from "../src/lib/db";
 import { Question } from "../src/lib/db/schema";
@@ -30,6 +31,12 @@ export default {
       return;
     }
 
+    console.log("=== Inbound Email Received ===");
+    console.log(`From: ${sender}`);
+    console.log(`Subject: ${subject}`);
+    console.log(`Body: ${emailBody}`);
+    console.log("==============================");
+
     const IdFromSubjectRegex = /Re: \[ask-(.*?)\]/;
     const match = IdFromSubjectRegex.exec(subject);
 
@@ -38,7 +45,10 @@ export default {
     const questionId = match[1];
 
     const AnswerFromEmailBodyRegex = /\r?\nOn .+wrote:/s;
-    const answer = emailBody.split(AnswerFromEmailBodyRegex)[0].trim();
+    const answer = emailBody
+      .split(AnswerFromEmailBodyRegex)[0]
+      .split(/\n--\n/)[0]
+      .trim();
     if (!answer) return;
 
     const db = getDb(env.D1);
@@ -53,9 +63,11 @@ export default {
         })
         .where(eq(Question.id, questionId));
     } catch {
-      await env.EMAIL.send({
-        to: env.OWNER_EMAIL,
-        from: env.FROM_EMAIL,
+      const resend = new Resend(env.RESEND_API_KEY);
+
+      await resend.emails.send({
+        from: `Email Router <${env.REPLY_EMAIL}>`,
+        to: [env.OWNER_EMAIL],
         subject: `[ama] failed to publish answer for ask-${questionId}`,
         text: `Failed to update question ${questionId} with the following answer:\n\n${answer}\n\nCheck your D1 database manually.`,
       });

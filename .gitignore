@@ -4,6 +4,7 @@ dist/
 # generated types
 .astro/
 src/worker-configuration.d.ts
+workers/worker-configuration.d.ts
 
 # env-vars
 .dev.vars*
