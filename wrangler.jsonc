@@ -1,37 +1,37 @@
 {
-  "compatibility_date": "2026-04-20",
-  "compatibility_flags": [
-    "global_fetch_strictly_public",
-    "nodejs_compat"
-  ],
-  "name": "ama-dot-me",
-  "main": "@astrojs/cloudflare/entrypoints/server",
-  "assets": {
-    "directory": "./dist",
-    "binding": "ASSETS"
-  },
-  "observability": {
-    "enabled": true
-  },
-  "d1_databases": [
-    {
-      "binding": "D1",
-      "database_name": "ama-dot-me",
-      "database_id": "dc000684-0f1e-4ba2-988e-6831a0d5bffc",
-      "migrations_dir": "src/lib/db/migrations"
-    }
-  ],
-  "secrets": {
-    "required": [
-      "OWNER_EMAIL",
-      "FROM_EMAIL",
-      "TURNSTILE_SECRET",
-      "TURNSTILE_SITE_KEY"
-    ]
-  },
-  "send_email": [
-    {
-      "name": "EMAIL"
-    }
-  ]
+	"compatibility_date": "2026-04-20",
+	"compatibility_flags": [
+		"global_fetch_strictly_public",
+		"nodejs_compat"
+	],
+	"name": "ama-dot-me",
+	"main": "@astrojs/cloudflare/entrypoints/server",
+	"assets": {
+		"directory": "./dist",
+		"binding": "ASSETS"
+	},
+	"observability": {
+		"enabled": true
+	},
+	"d1_databases": [
+		{
+			"binding": "D1",
+			"database_name": "ama-dot-me",
+			"database_id": "dc000684-0f1e-4ba2-988e-6831a0d5bffc",
+			"migrations_dir": "src/lib/db/migrations"
+		}
+	],
+	"secrets": {
+		"required": [
+			"OWNER_EMAIL",
+			"FROM_EMAIL",
+			"TURNSTILE_SECRET",
+			"TURNSTILE_SITE_KEY"
+		]
+	},
+	"send_email": [
+		{
+			"name": "EMAIL"
+		}
+	]
 }

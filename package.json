@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "pnpm gen:types && astro dev",
     "build": "pnpm gen:types && astro build",
-    "preview": "astro preview",
+    "preview": "astro build && wrangler dev",
     "astro": "astro",
     "deploy": "pnpm gen:types && astro build && wrangler deploy",
     "deploy:email": "pnpm gen:types:email && wrangler deploy --config workers/wrangler.jsonc",
@@ -17,7 +17,7 @@
     "gen:types:email": "wrangler types --config ./workers/wrangler.jsonc ./workers/worker-configuration.d.ts",
     "gen:migrations": "drizzle-kit generate",
     "db:migrate": "wrangler d1 migrations apply ama-dot-me --local",
-    "db:migrate:prod": "wrangler d1 migrations apply ama-dot-me>",
+    "db:migrate:prod": "wrangler d1 migrations apply ama-dot-me --remote",
     "db:studio:local": "drizzle-kit studio"
   },
   "dependencies": {

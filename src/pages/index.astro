@@ -1,6 +1,23 @@
 ---
+import { env } from "cloudflare:workers";
+import { eq } from "drizzle-orm";
+
 import Layout from "$components/layout.astro";
 import QuestionForm from "$components/question-form.astro";
+
+import { getDb } from "$lib/db";
+import { Question } from "$lib/db/schema";
+
+const db = getDb(env.D1);
+
+const questions = await db
+  .select()
+  .from(Question)
+  .where(eq(Question.published, true))
+  .orderBy(Question.askedAt)
+  .all();
+
+console.log(questions);
 ---
 
 <Layout> <QuestionForm /> </Layout>
