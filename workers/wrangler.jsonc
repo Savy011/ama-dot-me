@@ -12,6 +12,9 @@
       "database_id": "dc000684-0f1e-4ba2-988e-6831a0d5bffc"
     }
   ],
+  "observability": {
+    "enabled": true
+  },
   "secrets": {
     "required": [
       "OWNER_EMAIL",
