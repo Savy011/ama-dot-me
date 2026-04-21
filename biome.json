@@ -19,7 +19,15 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true
+      "recommended": true,
+      "style": {
+        "useImportType": {
+          "level": "on",
+          "options": {
+            "style": "separatedType"
+          }
+        }
+      }
     }
   },
   "javascript": {
@@ -29,7 +37,9 @@
     }
   },
   "html": {
+    "experimentalFullSupportEnabled": true,
     "formatter": {
+      "enabled": true,
       "indentScriptAndStyle": true,
       "selfCloseVoidElements": "always"
     }
@@ -38,7 +48,28 @@
     "enabled": true,
     "actions": {
       "source": {
-        "organizeImports": "on"
+        "organizeImports": {
+          "level": "on",
+          "options": {
+            "groups": [
+              {
+                "type": true
+              },
+              ":BLANK_LINE:",
+              [":NODE:"],
+              ":BLANK_LINE:",
+              [":PACKAGE:", "cloudflare:workers", "!$components/**", "!$lib/**", "!**/*.css"],
+              ":BLANK_LINE:",
+              "$components/**",
+              ":BLANK_LINE:",
+              "$lib/**",
+              ":BLANK_LINE:",
+              ":PATH:",
+              ":BLANK_LINE:",
+              "**/*.css"
+            ]
+          }
+        }
       }
     }
   },
@@ -54,6 +85,13 @@
           "correctness": {
             "noUnusedVariables": "off",
             "noUnusedImports": "off"
+          }
+        }
+      },
+      "assist": {
+        "actions": {
+          "source": {
+            "organizeImports": "off"
           }
         }
       }
