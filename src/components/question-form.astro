@@ -1,0 +1,31 @@
+---
+import { env } from "cloudflare:workers";
+---
+
+<div id="question-form">
+  <form
+    hx-post="/api/ask"
+    hx-target="#question-form"
+    hx-target-400="#form-errors"
+    hx-target-401="#form-errors"
+    hx-swap="innerHTML"
+  >
+    <h1><label for="question">Ask Me Anything!!</label></h1>
+    <textarea
+      hx-preserve
+      id="question"
+      name="question"
+    ></textarea>
+
+    <div
+      class="cf-turnstile"
+      data-sitekey={env.TURNSTILE_SITE_KEY}
+      data-appearance="interaction-only"
+      data-response-field-name="token"
+    ></div>
+
+    <div id="form-errors"></div>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>
