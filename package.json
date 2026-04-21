@@ -10,11 +10,14 @@
     "build": "pnpm gen:types && astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "deploy": "pnpm gen:types && astro build && wrangler deploy",
+    "deploy:email": "pnpm gen:types:email && wrangler deploy --config workers/wrangler.jsonc",
     "fmt": "biome check --write .",
     "gen:types": "wrangler types ./src/worker-configuration.d.ts",
+    "gen:types:email": "wrangler types --config ./workers/wrangler.jsonc ./workers/worker-configuration.d.ts",
     "gen:migrations": "drizzle-kit generate",
     "db:migrate": "wrangler d1 migrations apply ama-dot-me --local",
-    "db:migrate:prod": "wrangler d1 migrations ama-dot-me <name>",
+    "db:migrate:prod": "wrangler d1 migrations apply ama-dot-me>",
     "db:studio:local": "drizzle-kit studio"
   },
   "dependencies": {
@@ -23,7 +26,8 @@
     "drizzle-orm": "^0.45.2",
     "hono": "^4.12.14",
     "htmx-ext-response-targets": "^2.0.4",
-    "wrangler": "^4.84.0"
+    "nanoid": "^5.1.9",
+    "postal-mime": "^2.7.4"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.12",
@@ -31,7 +35,8 @@
     "@types/node": "^25.6.0",
     "drizzle-kit": "^0.31.10",
     "htmx.org": "^2.0.8",
-    "lefthook": "^2.1.6"
+    "lefthook": "^2.1.6",
+    "wrangler": "^4.84.0"
   },
   "overrides": {
     "vite": "^7"

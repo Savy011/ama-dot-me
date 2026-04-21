@@ -1,0 +1,26 @@
+{
+  "compatibility_date": "2026-04-20",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "name": "ama-dot-me-email-worker",
+  "main": "./index.ts",
+  "d1_databases": [
+    {
+      "binding": "D1",
+      "database_name": "ama-dot-me",
+      "database_id": "dc000684-0f1e-4ba2-988e-6831a0d5bffc"
+    }
+  ],
+  "secrets": {
+    "required": [
+      "OWNER_EMAIL",
+      "FROM_EMAIL"
+    ]
+  },
+  "send_email": [
+    {
+      "name": "EMAIL"
+    }
+  ]
+}
