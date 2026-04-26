@@ -2,8 +2,31 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  padding: 16px 20px 24px;
+  padding: 16px 20px 36px;
   font-family: var(--font-mono);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    background: linear-gradient(to bottom, var(--color-bg) 40%, transparent 100%);
+    mask-image: linear-gradient(to bottom,
+        black 0%,
+        black 30%,
+        rgba(0, 0, 0, 0.8) 50%,
+        rgba(0, 0, 0, 0.3) 70%,
+        transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom,
+        black 0%,
+        black 30%,
+        rgba(0, 0, 0, 0.8) 50%,
+        rgba(0, 0, 0, 0.3) 70%,
+        transparent 100%);
+    pointer-events: none;
+    z-index: -1;
+  }
 
   nav {
     position: relative;

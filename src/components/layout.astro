@@ -1,11 +1,18 @@
 ---
 import { Font } from "astro:assets";
+import { ClientRouter } from "astro:transitions";
 
 import Header from "$components/header.astro";
 import Footer from "$components/footer.astro";
 
 import "$styles/reset.css";
 import "$styles/main.css";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
 ---
 
 <html lang="en">
@@ -32,7 +39,7 @@ import "$styles/main.css";
       rel="preconnect"
       href="https://challenges.cloudflare.com"
     />
-    <title>Astro</title>
+    <title>{title}</title>
 
     <script>
       import htmx from "htmx.org";
@@ -55,12 +62,14 @@ import "$styles/main.css";
     <Font cssVariable="--font-mono" />
     <Font cssVariable="--font-serif" />
     <Font cssVariable="--font-script" />
+
+    <ClientRouter />
   </head>
   <body hx-ext="response-targets">
     <div class="wrapper">
       <Header />
 
-      <slot />
+      <slot transition:animate="fade" />
 
       <Footer />
     </div>
