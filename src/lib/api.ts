@@ -61,7 +61,7 @@ export function createHonoApp(cfContext: ExecutionContext) {
 
       c.status(201);
       return c.html(
-        `<div><p>Thank you for submitting a question! I will reply to it as soon as I can!</p></div>`,
+        `<div class="submission-success"><p>✉️</p><p>sent!</p><p>Thank you for submitting a question! I will reply to it as soon as I can!</p></div>`,
       );
     })
     .get("/questions", async c => {
