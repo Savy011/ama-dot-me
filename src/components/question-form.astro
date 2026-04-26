@@ -1,12 +1,13 @@
 ---
 import { env } from "cloudflare:workers";
+
+import "$styles/components/question-form.css";
 ---
 
 <section id="question-form">
   <label for="question">drop your question here!</label>
 
   <form
-    id="question-form"
     hx-post="/api/ask"
     hx-target="#question-form"
     hx-target-400="#form-error"
@@ -21,7 +22,7 @@ import { env } from "cloudflare:workers";
       placeholder="what do you want to ask me?"
     ></textarea>
 
-    <fieldset style="border: none; padding: 0;">
+    <fieldset style="border: none; padding: 0; margin-bottom: -12px">
       <legend class="sr-only">spam verficiation</legend>
       <div
         class="cf-turnstile"
@@ -35,116 +36,10 @@ import { env } from "cloudflare:workers";
       id="form-error"
       role="alert"
       aria-live="polite"
-    ></div>
+    >
+      <p>some error occured</p>
+    </div>
 
     <button type="submit">Submit</button>
   </form>
 </section>
-
-<style>
-  section {
-    background: var(--color-green-card);
-    border-top: 1px solid var(--color-border-top);
-    border-bottom: 1px solid var(--color-border-bottom);
-    border-inline: 1px solid var(--color-border-side);
-    border-radius: var(--border-radius-outer);
-    padding: 16px;
-    backdrop-filter: blur(2px);
-    box-shadow: var(--shadow-card);
-
-    & > label {
-      display: block;
-      font-size: 10px;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 10px;
-    }
-  }
-
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  textarea {
-    width: 100%;
-    background: rgba(255, 255, 255, 0.52);
-    border-top: 1px solid rgba(0, 0, 0, 0.07);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.9);
-    border-left: 1px solid rgba(0, 0, 0, 0.04);
-    border-right: 1px solid rgba(0, 0, 0, 0.04);
-    border-radius: 6px;
-    padding: 14px 16px;
-    color: var(--text);
-    font-family: var(--font-mono), monospace;
-    font-size: 13px;
-    resize: none;
-    min-height: 100px;
-    outline: none;
-    transition:
-      border-bottom-color 0.2s,
-      background 0.2s,
-      border-color 0.2s;
-    box-shadow: var(--shadow-inset);
-    border: 3px solid var(--color-border);
-
-    &::placeholder {
-      color: var(--color-text-muted);
-    }
-
-    &:focus {
-      border-bottom-color: var(--color-peach);
-      background: rgba(255, 255, 255, 0.7);
-      color: var(--color-link-btn);
-    }
-  }
-
-  div#form-error {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    padding: 10px 14px;
-    background: var(--color-error-bg);
-    border-top: 1px solid var(--color-error-border);
-    border-bottom: 1px solid rgba(224, 92, 92, 0.15);
-    border-inline: 1px solid var(--color-error-border);
-    border-radius: var(--border-radius-outer);
-    font-size: 12px;
-    color: var(--error);
-    animation: fade-up 200ms ease both;
-  }
-
-  button {
-    background: var(--color-peach);
-    border-top: 1px solid rgba(255, 255, 255, 0.55);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    border-left: 1px solid rgba(255, 255, 255, 0.35);
-    border-right: 1px solid rgba(255, 255, 255, 0.35);
-    border-radius: 999px;
-    padding: 8px 24px;
-    color: white;
-    font-family: "DM Mono", monospace;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    cursor: pointer;
-    box-shadow: 0 2px 10px rgba(244, 164, 146, 0.4);
-    transition:
-      background 0.2s,
-      transform 0.1s;
-    &:hover {
-      background: var(--color-peach-light);
-      color: var(--color-link-btn);
-    }
-    &:active {
-      transform: scale(0.97);
-    }
-    &:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-      transform: none;
-    }
-  }
-</style>

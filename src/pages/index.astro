@@ -2,6 +2,7 @@
 import { env } from "cloudflare:workers";
 import { eq } from "drizzle-orm";
 
+import AnswerBlock from "$components/answer-block.astro";
 import Layout from "$components/layout.astro";
 import QuestionForm from "$components/question-form.astro";
 
@@ -26,26 +27,20 @@ const questions = await db
   <QuestionForm />
 
   <section class="qnas">
-    <h2>Previous QnAs</h2>
+    <h2>Answered</h2>
 
-    {[...questions, ...questions].map(q => (
-      <article>
-      <div class="question">
-      <div class="article-inner-row">
-        <span>question</span>
-        <time datetime={q.askedAt.toLocaleDateString()}>{q.askedAt.toLocaleDateString()}</time>
-      </div>
-        <h3>{q.body}</h3>
-      </div>
-
-      <div class="answer">
-      <div  class="article-inner-row">
-        <span>answer</span>
-        <time datetime={q.answeredAt?.toLocaleDateString()}>{q.answeredAt?.toLocaleDateString()}</time>
-      </div>
-        <p>{q.answer}</p>
-      </div>
-      </article>
-    ))}
+    <ul>
+      {questions.length === 0 ? (
+      <li class="no-questions">
+        <p>😄</p>
+        <p>No answered questions found!</p>
+        <p>Check back in a while!</p>
+      </li>
+      ):(questions.map(q => (
+        <li>
+          <AnswerBlock question={q} />
+        </li>
+      )))}
+    </ul>
   </section>
 </Layout>

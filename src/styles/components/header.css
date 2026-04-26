@@ -1,4 +1,4 @@
-header.mobile-header {
+header {
   position: sticky;
   top: 0;
   z-index: 100;
@@ -31,15 +31,6 @@ header.mobile-header {
       color: var(--color-muted);
       cursor: pointer;
       transition: color 0.2s;
-
-      .name-dot {
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: var(--color-peach);
-        opacity: 0.85;
-
-      }
 
       &:hover,
       &:active {

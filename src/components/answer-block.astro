@@ -1,0 +1,40 @@
+---
+import type { QuestionRow } from "$lib/db/schema";
+
+import "$styles/components/answer-block.css";
+
+interface Props {
+  question: QuestionRow;
+}
+
+const { question } = Astro.props;
+
+const formatter = new Intl.DateTimeFormat("en", {
+  timeStyle: "short",
+  dateStyle: "long",
+});
+---
+
+<article class="answer-block">
+  <div class="question">
+    <div class="article-inner-row">
+      <span>question</span>
+      <time datetime={question.askedAt.toLocaleDateString()}
+        >{formatter.format(question.askedAt)}</time
+      >
+    </div>
+
+    <h3>{question.body}</h3>
+  </div>
+
+  <div class="answer">
+    <div class="article-inner-row">
+      <span>answer</span>
+      <time datetime={question.answeredAt?.toLocaleDateString()}>
+        {formatter.format(question.answeredAt!)}
+      </time>
+    </div>
+
+    <p>{question.answer}</p>
+  </div>
+</article>

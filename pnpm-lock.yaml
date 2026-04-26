@@ -14,6 +14,12 @@ importers:
       '@fontsource-variable/atkinson-hyperlegible-mono':
         specifier: ^5.2.5
         version: 5.2.5
+      '@fontsource-variable/faustina':
+        specifier: ^5.2.8
+        version: 5.2.8
+      '@fontsource/englebert':
+        specifier: ^5.2.10
+        version: 5.2.10
       astro:
         specifier: ^6.1.8
         version: 6.1.8(@types/node@25.6.0)(rollup@4.60.2)(tsx@4.21.0)
@@ -839,6 +845,12 @@ packages:
 
   '@fontsource-variable/atkinson-hyperlegible-mono@5.2.5':
     resolution: {integrity: sha512-dbbd1cydeIwy0EAVm21o7IfOcAHTc0b4cQ6YE/SEm5BzcJpaXw1/JygAZriTtWkrgVb08iVDLMkSqirYQqvaEA==}
+
+  '@fontsource-variable/faustina@5.2.8':
+    resolution: {integrity: sha512-LJvg2rGbUONmo97SpoWLQZhwV8EBhhlB2ZajWfD4oSOJ/6jrsish7Xepbl7wsqjHcps4TbnkC6bmyYwERW9Pyw==}
+
+  '@fontsource/englebert@5.2.10':
+    resolution: {integrity: sha512-G8jTtGBii5R9A9l8Bb1yRI0sf7zVyuYaOlbQc4087GRcxKcq83wdkDz9uoOaVMC51nzv/TpH1dXLc8/qe9aOTw==}
 
   '@img/colour@1.1.0':
     resolution: {integrity: sha512-Td76q7j57o/tLVdgS746cYARfSyxk8iEfRxewL9h4OMzYhbW4TAcppl0mT4eyqXddh6L/jwoM75mo7ixa/pCeQ==}
@@ -2989,6 +3001,10 @@ snapshots:
     optional: true
 
   '@fontsource-variable/atkinson-hyperlegible-mono@5.2.5': {}
+
+  '@fontsource-variable/faustina@5.2.8': {}
+
+  '@fontsource/englebert@5.2.10': {}
 
   '@img/colour@1.1.0': {}
 

@@ -1,58 +1,54 @@
+h1 {
+  line-height: 0.9;
+
+  padding-inline: 12px;
+  margin-bottom: 24px;
+
+  &>span {
+    color: var(--color-peach);
+  }
+}
+
 section.qnas {
-  display: grid;
+  h2 {
+    margin-block: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-link-btn);
 
-  article {
-    background: var(--color-green-dark);
-    backdrop-filter: blur(1px);
-    border-top: 1px solid var(--color-border-top);
-    border-bottom: 1px solid var(--color-border-bottom);
-    border-inline: 1px solid var(--color-border-side);
-    border-radius: var(--border-radius-outer);
-    overflow: hidden;
-    box-shadow: var(--shadow-card);
-    animation: slide-in 0.4s ease both;
-
-    .article-inner-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 6px;
-
-      &>span {
-        font-size: 10px;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: var(--card-muted);
-      }
+    &::before,
+    &::after {
+      content: '';
+      display: inline;
+      width: 100%;
+      height: 1px;
+      background-color: var(--color-link-btn);
     }
+  }
 
-    &>.question {
-      padding: 14px 18px 12px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
+  &>ul {
+    display: grid;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 8px;
+    gap: 16px;
 
-    }
+    li.no-questions {
+      background-color: var(--color-green-card);
+      border-radius: var(--border-radius-outer);
+      padding: 24px;
+      text-align: center;
+      backdrop-filter: blur(2px);
 
-    &>h3 {
-      font-family: 'Instrument Serif', serif;
-      font-size: 16px;
-      color: var(--card-text);
-      line-height: 1.4;
-    }
+      p {
+        &:first-child {
+          font-size: 24px;
+        }
 
-    &>.answer {
-      padding: 12px 18px 16px;
-      background: var(--color-green-card);
-      box-shadow: var(--shadow-inset);
-
-      .article-inner-row {
-        color: var(--color-peach);
-      }
-
-      &>p {
-        font-size: 14px;
-        line-height: 1.7;
-        opacity: 0.88;
+        &:nth-child(2) {
+          color: var(--color-peach);
+        }
       }
     }
   }

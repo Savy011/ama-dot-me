@@ -12,3 +12,5 @@ export const Question = table(
   },
   table => [index("published_idx").on(table.published)],
 );
+
+export type QuestionRow = typeof Question.$inferSelect;

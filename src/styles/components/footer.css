@@ -1,0 +1,13 @@
+footer {
+  text-align: center;
+  padding-block: 24px;
+  font-family: var(--font-mono);
+
+  a {
+    color: var(--color-peach);
+
+    &:hover {
+      color: var(--color-peach-light);
+    }
+  }
+}

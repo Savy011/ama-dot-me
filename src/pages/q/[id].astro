@@ -1,0 +1,42 @@
+---
+import { env } from "cloudflare:workers";
+import { and, eq } from "drizzle-orm";
+
+import AnswerBlock from "$components/answer-block.astro";
+import Layout from "$components/layout.astro";
+
+import { getDb } from "$lib/db";
+import { Question } from "$lib/db/schema";
+
+import "$styles/pages/index.css";
+
+const { id } = Astro.params;
+
+const db = getDb(env.D1);
+
+if (!id) {
+  return new Response(null, {
+    status: 404,
+    statusText: "Not found",
+  });
+}
+
+const [question] = await db
+  .select()
+  .from(Question)
+  .where(and(eq(Question.id, id), eq(Question.published, true)))
+  .limit(1);
+
+if (!question) {
+  return new Response(null, {
+    status: 404,
+    statusText: "Not found",
+  });
+}
+---
+
+<Layout>
+  <h1 class="heading">someone<br /><span>asked.</span></h1>
+
+  <AnswerBlock question={question} />
+</Layout>
