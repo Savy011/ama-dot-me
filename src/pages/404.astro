@@ -1,11 +1,19 @@
 ---
 import Layout from "$components/layout.astro";
 
+import "$styles/pages/404.css";
+
 export const prerender = true;
 ---
 
 <Layout>
-  <h2>404 - Page Not Found</h2>
-  <p>the page that u requested does not exist.</p>
-  <p>Let's get u back to <a href="/">home</a></p>
+  <h1>
+    404 <br />
+    <span>Page Not Found</span>
+  </h1>
+  <main class="content">
+    <p>😅</p>
+    <p>the page that your requested does not exist.</p>
+    <p>let's get u back to <a href="/">home</a></p>
+  </main>
 </Layout>
