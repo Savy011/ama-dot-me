@@ -1,3 +1,12 @@
+---
+import { Font } from "astro:assets";
+
+import Header from "$components/header.astro";
+
+import "$styles/reset.css";
+import "$styles/main.css";
+---
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -41,8 +50,13 @@
       async
       defer
     ></script>
+
+    <Font cssVariable="--font-mono" />
   </head>
   <body hx-ext="response-targets">
-    <slot />
+    <div class="wrapper">
+      <Header />
+      <slot />
+    </div>
   </body>
 </html>

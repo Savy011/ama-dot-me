@@ -8,6 +8,8 @@ import QuestionForm from "$components/question-form.astro";
 import { getDb } from "$lib/db";
 import { Question } from "$lib/db/schema";
 
+import "$styles/pages/index.css";
+
 const db = getDb(env.D1);
 
 const questions = await db
@@ -16,8 +18,34 @@ const questions = await db
   .where(eq(Question.published, true))
   .orderBy(Question.askedAt)
   .all();
-
-console.log(questions);
 ---
 
-<Layout> <QuestionForm /> </Layout>
+<Layout>
+  <h1 class="heading">ask me<br /><span>anything.</span></h1>
+
+  <QuestionForm />
+
+  <section class="qnas">
+    <h2>Previous QnAs</h2>
+
+    {[...questions, ...questions].map(q => (
+      <article>
+      <div class="question">
+      <div class="article-inner-row">
+        <span>question</span>
+        <time datetime={q.askedAt.toLocaleDateString()}>{q.askedAt.toLocaleDateString()}</time>
+      </div>
+        <h3>{q.body}</h3>
+      </div>
+
+      <div class="answer">
+      <div  class="article-inner-row">
+        <span>answer</span>
+        <time datetime={q.answeredAt?.toLocaleDateString()}>{q.answeredAt?.toLocaleDateString()}</time>
+      </div>
+        <p>{q.answer}</p>
+      </div>
+      </article>
+    ))}
+  </section>
+</Layout>

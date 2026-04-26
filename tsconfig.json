@@ -3,6 +3,7 @@
   "include": [
     ".astro/types.d.ts",
     "**/*",
+    "./src/env.d.ts",
     "./worker-configuration.d.ts"
   ],
   "exclude": [
@@ -15,6 +16,9 @@
       ],
       "$lib/*": [
         "./src/lib/*"
+      ],
+      "$styles/*": [
+        "./src/styles/*"
       ]
     }
   }

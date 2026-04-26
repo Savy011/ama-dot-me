@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@astrojs/cloudflare": "^13.1.10",
+    "@fontsource-variable/atkinson-hyperlegible-mono": "^5.2.5",
     "astro": "^6.1.8",
     "drizzle-orm": "^0.45.2",
     "hono": "^4.12.14",
