@@ -1,5 +1,5 @@
 import { env } from "cloudflare:workers";
-import { and, eq } from "drizzle-orm";
+import { and, desc, eq } from "drizzle-orm";
 import { Hono } from "hono";
 import { nanoid } from "nanoid";
 import { Resend } from "resend";
@@ -71,7 +71,7 @@ export function createHonoApp(cfContext: ExecutionContext) {
         .select()
         .from(Question)
         .where(eq(Question.published, true))
-        .orderBy(Question.askedAt)
+        .orderBy(desc(Question.askedAt))
         .all();
 
       return c.json(questions);

@@ -1,6 +1,6 @@
 ---
 import { env } from "cloudflare:workers";
-import { eq } from "drizzle-orm";
+import { desc, eq } from "drizzle-orm";
 
 import AnswerBlock from "$components/answer-block.astro";
 import Layout from "$components/layout.astro";
@@ -17,7 +17,7 @@ const questions = await db
   .select()
   .from(Question)
   .where(eq(Question.published, true))
-  .orderBy(Question.askedAt)
+  .orderBy(desc(Question.askedAt))
   .all();
 ---
 

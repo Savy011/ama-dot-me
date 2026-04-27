@@ -35,6 +35,6 @@ const formatter = new Intl.DateTimeFormat("en", {
       </time>
     </div>
 
-    <p>{question.answer}</p>
+    <pre><p>{question.answer?.trim()}</p></pre>
   </div>
 </article>
