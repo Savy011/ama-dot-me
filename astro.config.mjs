@@ -3,10 +3,13 @@
 import cloudflare from "@astrojs/cloudflare";
 import { defineConfig, fontProviders } from "astro/config";
 
+import alpinejs from "@astrojs/alpinejs";
+
 // https://astro.build/config
 export default defineConfig({
   output: "server",
   adapter: cloudflare(),
+
   fonts: [
     {
       provider: fontProviders.fontsource(),
@@ -24,4 +27,6 @@ export default defineConfig({
       cssVariable: "--font-script"
     },
   ],
+
+  integrations: [alpinejs()],
 });

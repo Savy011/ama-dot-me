@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@astrojs/alpinejs':
+        specifier: ^0.5.0
+        version: 0.5.0(@types/alpinejs@3.13.11)(alpinejs@3.15.11)
       '@astrojs/cloudflare':
         specifier: ^13.1.10
         version: 13.1.10(@types/node@25.6.0)(astro@6.1.8(@types/node@25.6.0)(rollup@4.60.2)(tsx@4.21.0))(tsx@4.21.0)(workerd@1.20260420.1)(wrangler@4.84.0)
@@ -20,6 +23,12 @@ importers:
       '@fontsource/englebert':
         specifier: ^5.2.10
         version: 5.2.10
+      '@types/alpinejs':
+        specifier: ^3.13.11
+        version: 3.13.11
+      alpinejs:
+        specifier: ^3.15.11
+        version: 3.15.11
       astro:
         specifier: ^6.1.8
         version: 6.1.8(@types/node@25.6.0)(rollup@4.60.2)(tsx@4.21.0)
@@ -65,6 +74,12 @@ importers:
         version: 4.84.0
 
 packages:
+
+  '@astrojs/alpinejs@0.5.0':
+    resolution: {integrity: sha512-mORFY/ljzz6LPqkBPBd4v2i6yMhTkySgopIpVyKODEoJegp1PuX2Hri589P1oJzICGHSY8Q28OIyF/50Cf/lMQ==}
+    peerDependencies:
+      '@types/alpinejs': ^3.0.0
+      alpinejs: ^3.0.0
 
   '@astrojs/cloudflare@13.1.10':
     resolution: {integrity: sha512-Ogl8p4MifPMHbpHKJL78eqEL+I3wbHrYmo83P/FkKZQ9VzzKi2A1RjnbaiiPAwrA8xQOqIUo4zlN7+Mse0aJAQ==}
@@ -1275,6 +1290,9 @@ packages:
   '@stablelib/base64@1.0.1':
     resolution: {integrity: sha512-1bnPQqSxSuc3Ii6MhBysoWCg58j97aUjuCSZrGSmDxNqtytIi0k8utUenAwTZN4V5mXXYGsVUI9zeBqy+jBOSQ==}
 
+  '@types/alpinejs@3.13.11':
+    resolution: {integrity: sha512-3KhGkDixCPiLdL3Z/ok1GxHwLxEWqQOKJccgaQL01wc0EVM2tCTaqlC3NIedmxAXkVzt/V6VTM8qPgnOHKJ1MA==}
+
   '@types/debug@4.1.13':
     resolution: {integrity: sha512-KSVgmQmzMwPlmtljOomayoR89W4FynCAi3E8PPs7vmDVPe84hT+vGPKkJfThkmXs0x0jAaa9U8uW8bbfyS2fWw==}
 
@@ -1304,6 +1322,15 @@ packages:
 
   '@ungap/structured-clone@1.3.0':
     resolution: {integrity: sha512-WmoN8qaIAo7WTYWbAZuG8PYEhn5fkz7dZrqTBZ7dtt//lL2Gwms1IcnQ5yHqjDfX8Ft5j4YzDM23f87zBfDe9g==}
+
+  '@vue/reactivity@3.1.5':
+    resolution: {integrity: sha512-1tdfLmNjWG6t/CsPldh+foumYFo3cpyCHgBYQ34ylaMsJ+SNHQ1kApMIa8jN+i593zQuaw3AdWH0nJTARzCFhg==}
+
+  '@vue/shared@3.1.5':
+    resolution: {integrity: sha512-oJ4F3TnvpXaQwZJNF3ZK+kLPHKarDmJjJ6jyzVNDKH9md1dptjC7lWR//jrGuLdek/U6iltWxqAnYOu8gCiOvA==}
+
+  alpinejs@3.15.11:
+    resolution: {integrity: sha512-m26gkTg/MId8O+F4jHKK3vB3SjbFxxk/JHP+qzmw1H6aQrZuPAg4CUoAefnASzzp/eNroBjrRQe7950bNeaBJw==}
 
   anymatch@3.1.3:
     resolution: {integrity: sha512-KMReFUr0B4t+D+OBkjR3KYqvocp2XaSzO55UcB6mgQMd3KbcE+mWTyvVV7D/zsdEbNnV6acZUutkiHQXvTr1Rw==}
@@ -2506,6 +2533,11 @@ packages:
 
 snapshots:
 
+  '@astrojs/alpinejs@0.5.0(@types/alpinejs@3.13.11)(alpinejs@3.15.11)':
+    dependencies:
+      '@types/alpinejs': 3.13.11
+      alpinejs: 3.15.11
+
   '@astrojs/cloudflare@13.1.10(@types/node@25.6.0)(astro@6.1.8(@types/node@25.6.0)(rollup@4.60.2)(tsx@4.21.0))(tsx@4.21.0)(workerd@1.20260420.1)(wrangler@4.84.0)':
     dependencies:
       '@astrojs/internal-helpers': 0.8.0
@@ -3318,6 +3350,8 @@ snapshots:
 
   '@stablelib/base64@1.0.1': {}
 
+  '@types/alpinejs@3.13.11': {}
+
   '@types/debug@4.1.13':
     dependencies:
       '@types/ms': 2.1.0
@@ -3349,6 +3383,16 @@ snapshots:
       '@types/node': 25.6.0
 
   '@ungap/structured-clone@1.3.0': {}
+
+  '@vue/reactivity@3.1.5':
+    dependencies:
+      '@vue/shared': 3.1.5
+
+  '@vue/shared@3.1.5': {}
+
+  alpinejs@3.15.11:
+    dependencies:
+      '@vue/reactivity': 3.1.5
 
   anymatch@3.1.3:
     dependencies:

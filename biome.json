@@ -7,7 +7,12 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "includes": ["**/*.{js,ts}", "src/**/*.astro", "!**/worker-configuration.d.ts"]
+    "includes": [
+      "**/*.{js,ts}",
+      "src/**/*.astro",
+      "!**/worker-configuration.d.ts",
+      "!src/components/question-form.astro"
+    ]
   },
   "formatter": {
     "enabled": true,

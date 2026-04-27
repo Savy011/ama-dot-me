@@ -13,6 +13,9 @@ import "$styles/components/question-form.css";
     hx-target-400="#form-error"
     hx-target-401="#form-error"
     hx-swap="innerHTML"
+    x-data="{ token: '' }"
+    @turnstile-success.window="token = $event.detail"
+    @turnstile-error.window="token = ''"
   >
     <textarea
       hx-preserve
@@ -29,6 +32,10 @@ import "$styles/components/question-form.css";
         data-sitekey={env.TURNSTILE_SITE_KEY}
         data-appearance="interaction-only"
         data-response-field-name="token"
+        data-callback="onTurnstileSuccess"
+        data-error-callback="onTurnstileError"
+        data-expired-callback="onTurnstileError"
+        data-timeout-callback="onTurnstileError"
       ></div>
     </fieldset>
 
@@ -38,6 +45,22 @@ import "$styles/components/question-form.css";
       aria-live="polite"
     ></div>
 
-    <button type="submit">Submit</button>
+    <button
+      type="submit"
+      :disabled="!token"
+      x-text="token !== '' ? 'Submit' : 'checking if you are a bot...'"
+    >
+      Submit
+    </button>
   </form>
 </section>
+
+<script is:inline>
+  function onTurnstileSuccess(token) {
+    window.dispatchEvent(new CustomEvent("turnstile-success", { detail: token }));
+  }
+
+  function onTurnstileError() {
+    window.dispatchEvent(new CustomEvent("turnstile-error"));
+  }
+</script>
