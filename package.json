@@ -34,7 +34,8 @@
     "htmx-ext-response-targets": "^2.0.4",
     "nanoid": "^5.1.9",
     "postal-mime": "^2.7.4",
-    "resend": "^6.12.2"
+    "resend": "^6.12.2",
+    "workers-og": "^0.0.27"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.12",

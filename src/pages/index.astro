@@ -22,6 +22,25 @@ const questions = await db
 ---
 
 <Layout title="ask me anything - ama.yvas.me">
+  <Fragment slot="head-content">
+    <meta
+      property="og:image"
+      content={new URL("/og.png", Astro.site).href}
+    />
+    <meta
+      property="og:image:width"
+      content="1200"
+    />
+    <meta
+      property="og:image:height"
+      content="630"
+    />
+    <meta
+      name="twitter:image"
+      content={new URL("/og.png", Astro.site).href}
+    />
+  </Fragment>
+
   <h1 class="heading">ask me<br /><span>anything.</span></h1>
 
   <QuestionForm />

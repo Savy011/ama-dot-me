@@ -41,6 +41,8 @@ const { title } = Astro.props;
     />
     <title>{title}</title>
 
+    <slot name="head-content" />
+
     <script>
       import htmx from "htmx.org";
       import "htmx-ext-response-targets";
@@ -57,6 +59,7 @@ const { title } = Astro.props;
       src="https://challenges.cloudflare.com/turnstile/v0/api.js"
       async
       defer
+      data-astro-rerun
     ></script>
 
     <Font cssVariable="--font-mono" />
