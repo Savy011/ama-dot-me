@@ -35,7 +35,26 @@ if (!question) {
 }
 ---
 
-<Layout>
+<Layout title={`${question.body} - ama.yvas.me`}>
+  <Fragment slot="head-content">
+    <meta
+      property="og:image"
+      content={new URL(`/q/${id}/og.png`, Astro.site).href}
+    />
+    <meta
+      property="og:image:width"
+      content="1200"
+    />
+    <meta
+      property="og:image:height"
+      content="630"
+    />
+    <meta
+      name="twitter:image"
+      content={new URL(`/q/${id}/og.png`, Astro.site).href}
+    />
+  </Fragment>
+
   <h1 class="heading">someone<br /><span>asked.</span></h1>
 
   <AnswerBlock question={question} />
