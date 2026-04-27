@@ -21,9 +21,6 @@
       "migrations_dir": "src/lib/db/migrations"
     }
   ],
-  "vars": {
-    "SITE_URL": "https://ama.yvas.me",
-  },
   "secrets": {
     "required": [
       "OWNER_EMAIL",

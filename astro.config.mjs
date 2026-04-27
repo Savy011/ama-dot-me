@@ -8,7 +8,7 @@ import { rawFonts } from "./src/vite-plugin-raw-fonts";
 
 // https://astro.build/config
 export default defineConfig({
-  site: process.env.SITE_URL || "http://localhost:4321",
+  site: "https://ama.yvas.me",
 
   output: "server",
   adapter: cloudflare(),
