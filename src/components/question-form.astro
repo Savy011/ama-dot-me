@@ -63,4 +63,18 @@ import "$styles/components/question-form.css";
   function onTurnstileError() {
     window.dispatchEvent(new CustomEvent("turnstile-error"));
   }
+
+  document.addEventListener("astro:before-swap", () => {
+    const el = document.querySelector(".cf-turnstile");
+    if (el && window.turnstile) {
+      turnstile.remove(el);
+    }
+  })
+
+  document.addEventListener("astro:after-swap", () => {
+    const el = document.querySelector(".cf-turnstile");
+    if (el && window.turnstile) {
+      turnstile.render(el);
+    }
+  })
 </script>

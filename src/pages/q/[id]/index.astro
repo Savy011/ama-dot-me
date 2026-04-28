@@ -38,16 +38,12 @@ if (!question) {
 <Layout title={`${question.body} - ama.yvas.me`}>
   <Fragment slot="head-content">
     <meta
+      name="description"
+      content="answered by .savy!"
+    />
+    <meta
       property="og:image"
       content={new URL(`/q/${id}/og.png`, Astro.site).href}
-    />
-    <meta
-      property="og:image:width"
-      content="1200"
-    />
-    <meta
-      property="og:image:height"
-      content="630"
     />
     <meta
       name="twitter:image"

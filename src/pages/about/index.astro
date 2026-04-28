@@ -5,16 +5,12 @@ import Layout from "$components/layout.astro";
 <Layout title="about - ama.yvas.me">
   <Fragment slot="head-content">
     <meta
+      name="description"
+      content="the why and the stack"
+    />
+    <meta
       property="og:image"
       content={new URL("/about/og.png", Astro.site).href}
-    />
-    <meta
-      property="og:image:width"
-      content="1200"
-    />
-    <meta
-      property="og:image:height"
-      content="630"
     />
     <meta
       name="twitter:image"

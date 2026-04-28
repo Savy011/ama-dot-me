@@ -50,7 +50,7 @@ article.answer-block {
       color: var(--color-peach-light);
     }
 
-    &>p {
+    p {
       font-family: var(--font-script), cursive;
       font-size: 16px;
       line-height: 1.4;
