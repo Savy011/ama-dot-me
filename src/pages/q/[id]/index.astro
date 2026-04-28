@@ -33,9 +33,19 @@ if (!question) {
     statusText: "Not found",
   });
 }
+
+function escapeMetaContent(raw: string): string {
+  return raw
+    .replaceAll("&", "&amp;") // must be first
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;");
+}
+const title = `${escapeMetaContent(question.body)} - ama.yvas.me`;
 ---
 
-<Layout title={`${question.body} - ama.yvas.me`}>
+<Layout title={title}>
   <Fragment slot="head-content">
     <meta
       name="description"
@@ -44,6 +54,18 @@ if (!question) {
     <meta
       property="og:image"
       content={new URL(`/q/${id}/og.png`, Astro.site).href}
+    />
+    <meta
+      property="og:title"
+      content={title}
+    />
+    <meta
+      property="twitter:title"
+      content={title}
+    />
+    <meta
+      property="twitter:text:title"
+      content={title}
     />
     <meta
       name="twitter:image"
