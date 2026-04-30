@@ -1,6 +1,6 @@
-import Atkinson from "@/fonts/atkinson-hyperlegible-mono.ttf";
-import Englebert from "@/fonts/englebert.ttf";
-import Faustina from "@/fonts/faustina.ttf";
+import Atkinson from "../assets/fonts/atkinson-hyperlegible-mono.ttf";
+import Englebert from "../assets/fonts/englebert.ttf";
+import Faustina from "../assets/fonts/faustina.ttf";
 
 export const CONSTANTS = {
   OG_WIDTH: 1200,
@@ -39,7 +39,6 @@ function prepareText(
   if (!subtitle) return { text: "", fontSize: "72px" };
   const clean = cleanText(subtitle);
   const truncated = clean.length > maxLength ? `${clean.slice(0, maxLength - 3)}...` : clean;
-
   const fontSize = truncated.length > 80 ? "50px" : truncated.length > 50 ? "60px" : "72px";
 
   return { text: truncated, fontSize };
@@ -60,11 +59,7 @@ const PALETTE = {
   LinkBtn: "rgba(15, 28, 20, 0.55)",
 };
 
-const FONT_SIZES = {
-  SiteLabel: "22px",
-  Handle: "40px",
-  Pill: "17px",
-};
+const FONT_SIZES = { SiteLabel: "22px", Handle: "40px", Pill: "17px" };
 
 export function QuestionTemplate(question: string): string {
   const { fontSize, text } = prepareText(question);
