@@ -16,6 +16,7 @@
     "gen:types": "wrangler types ./src/worker-configuration.d.ts",
     "gen:types:email": "wrangler types --config ./workers/wrangler.jsonc ./workers/worker-configuration.d.ts",
     "gen:migrations": "drizzle-kit generate",
+    "gen:favicon": "node scripts/svg-to-ico.js",
     "db:migrate": "wrangler d1 migrations apply ama-dot-me --local",
     "db:migrate:prod": "wrangler d1 migrations apply ama-dot-me --remote",
     "db:studio:local": "drizzle-kit studio"
@@ -33,8 +34,10 @@
     "hono": "^4.12.14",
     "htmx-ext-response-targets": "^2.0.4",
     "nanoid": "^5.1.9",
+    "png-to-ico": "^3.0.1",
     "postal-mime": "^2.7.4",
     "resend": "^6.12.2",
+    "sharp": "^0.34.5",
     "workers-og": "^0.0.27"
   },
   "devDependencies": {
