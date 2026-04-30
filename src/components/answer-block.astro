@@ -31,7 +31,7 @@ const formatter = new Intl.DateTimeFormat("en", {
     <div class="article-inner-row">
       <span>answer</span>
       <time datetime={question.answeredAt?.toLocaleDateString()}>
-        {formatter.format(question.answeredAt!)}
+        {formatter.format(question?.answeredAt)}
       </time>
     </div>
 

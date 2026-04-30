@@ -109,9 +109,9 @@ const { title } = Astro.props;
     <slot name="head-content" />
   </head>
   <body hx-ext="response-targets">
-    <div class="wrapper">
-      <Header />
+    <Header />
 
+    <div class="wrapper">
       <slot transition:animate="fade" />
 
       <Footer />

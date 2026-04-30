@@ -64,6 +64,16 @@ div.wrapper {
   padding-inline: 0.5rem;
 }
 
+a {
+  color: var(--color-peach);
+  font-family: var(--font-mono);
+  text-underline-offset: 2px;
+
+  &:hover {
+    color: var(--color-peach-light);
+  }
+}
+
 .sr-only {
   position: absolute;
   left: -10000px;

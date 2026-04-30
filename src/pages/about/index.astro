@@ -1,5 +1,42 @@
 ---
 import Layout from "$components/layout.astro";
+
+import "$styles/pages/about.css";
+
+const links = {
+  htmx: "https://htmx.org",
+  alpine: "https://alpinejs.dev",
+  svelte: "https://svelte.dev",
+  astro: "https://astro.build",
+  d1: "https://www.cloudflare.com/en-gb/developer-platform/products/d1/",
+  emailService: "https://developers.cloudflare.com/email-service/",
+  emailRouting: "https://www.cloudflare.com/en-gb/developer-platform/products/email-routing/",
+  hono: "https://hono.dev",
+  resend: "https://resend.dev/",
+  drizzle: "https://orm.drizzle.team",
+  workers: "https://www.cloudflare.com/en-gb/developer-platform/products/workers/",
+  workersOG: "https://npmx.dev/package/workers-og",
+  satori: "https://github.com/vercel/satori",
+};
+
+const projects = [
+  {
+    name: "tilt-svelte",
+    description:
+      "a smooth 3D tilt effect as a Svelte 5 attachment, with glare, scale, and programmatic control.",
+    href: "https://savy011.github.io/tilt-svelte",
+  },
+  {
+    name: "Rubble",
+    description: "an archive for weeekly's bubble chats.",
+    href: "https://rubble.yvas.me",
+  },
+  {
+    name: "Weeekly Weverse Archive",
+    description: "an archive of Weeekly's Weverse posts.",
+    href: "https://weeekly-weverse.yvas.me",
+  },
+];
 ---
 
 <Layout title="about - ama.yvas.me">
@@ -21,7 +58,85 @@ import Layout from "$components/layout.astro";
   <h1>about<br /><span>this site.</span></h1>
 
   <section>
-    <h2>why does this exist?</h2>
-    <p>me bored :P</p>
+    <div>
+      <h2>why does this exist?</h2>
+    </div>
+    <div>
+      <p>
+        Mostly because I was bored, and wanted a smol project to work on. And I've heard about htmx,
+        ever since i got into web-dev, so I wanted to try it out, or atleast get a feel of it.
+      </p>
+      <br />
+      <p>
+        Daniel Roe made an
+        <a href="https://roe.dev/ama">ama page</a>
+        on his website and I thought, "hey maybe i can try this out too".
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div>
+      <h2>what does this use? (aka the stack)</h2>
+    </div>
+    <div>
+      <p>
+        The form is really the only thing which needed some js (cause of turnstile), so I ended up
+        using <a href={links.alpine}>alpine.js</a> and <a href={links.htmx}>htmx</a> and
+        <a href={links.astro}>astro</a>
+        instead of my usual pick,
+        <a href={links.svelte}>sveltekit</a>.
+      </p>
+      <br />
+      <p>
+        All question are saved to a <a href={links.d1}>cloudflare D1</a> database, and I use
+        <a href={links.drizzle}>drizzle</a>
+        as my orm. After a question is added to the database, an email with the question as the body
+        is sent to my email. I originally used
+        <a href={links.emailService}>cloudflare email</a>
+        sending to send them, but I later realized it is paid, so I switched it with
+        <a href={links.resend}>resend</a>. Answering to a question is just as easy as replying to
+        the email, which is handled by a cloudflare worker with
+        <a href={links.emailRouting}>email routing.</a>
+      </p>
+      <br />
+      <p>
+        This saved me the hassle of creating a whole different frontend for answering the question,
+        and replying to emails is just simply easy.
+      </p>
+      <p>
+        The OG Images are generated with <a href={links.satori}>satori</a> and resvg. Using them in
+        a worker is quite a setup, so I opted to use a <a href={links.workersOG}>library</a> to do
+        the heavy work for me.
+      </p>
+      <br />
+      <p>
+        I setup some API endpoints too, which are mounted on a
+        <a href={links.hono}>Hono</a>
+        instance.
+      </p>
+      <ul>
+        <li class="link">/ask</li>
+        <li class="link">/questions</li>
+        <li class="link">/questions/:id</li>
+      </ul>
+      <br />
+      <p>
+        oh yea, And the app is deployed on <a href={links.workers}>cloudflare workers</a> as well.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div>
+      <h2>some other projects by me</h2>
+    </div>
+    <div>
+      <ul>
+        {projects.map(p => (
+              <li><a href={p.href}>{p.name}</a>: {p.description}</li>
+              ))}
+      </ul>
+    </div>
   </section>
 </Layout>
