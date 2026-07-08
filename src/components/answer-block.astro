@@ -24,14 +24,14 @@ const formatter = new Intl.DateTimeFormat("en", {
       >
     </div>
 
-    <h3>{question.body}</h3>
+    <h3><pre>{question.body}</pre></h3>
   </div>
 
   <div class="answer">
     <div class="article-inner-row">
       <span>answer</span>
       <time datetime={question.answeredAt?.toLocaleDateString()}>
-        {formatter.format(question?.answeredAt)}
+        {formatter.format(question?.answeredAt ?? undefined)}
       </time>
     </div>
 
